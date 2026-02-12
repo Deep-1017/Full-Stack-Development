@@ -1,0 +1,26 @@
+This is a Introduction file of HTML.
+
+HTML - HyperText Markup Language 
+
+Extention - .html, .htm
+
+BoilerPlate Code = Necessary / Required Code 
+    -> html:5   OR   shift + 1 
+
+
+## Tag & Elements
+
+# Tag -  <Deep>, <Hi>, <iant>, <button>
+    -> Opening Tag:  <button>
+    -> Closing Tag:  </button>
+
+
+# Elements - Opening Tag + Content/Data + Closing Tag
+<h1>Heading 1</h1>
+
+
+## Attributes = Used to pass extra information
+<h1 name="heading">
+
+
+## Comments = Extra Information 
