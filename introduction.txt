@@ -24,3 +24,27 @@ BoilerPlate Code = Necessary / Required Code
 
 
 ## Comments = Extra Information 
+
+
+
+
+CSS = Cascading Style Sheets 
+
+3 Ways to add CSS into document:
+    1> Inline CSS
+        <h1 style="background-color: red"> 
+
+    2> Internal CSS
+        <style>
+            h2 {
+                background-color: blue
+            }
+        </style>
+
+    3> External CSS 
+        - Make a new file "style.css"
+        - Link css file to html
+
+        h2 {
+            background-color: red
+        }
