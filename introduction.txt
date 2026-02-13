@@ -13,6 +13,7 @@ BoilerPlate Code = Necessary / Required Code
 # Tag -  <Deep>, <Hi>, <iant>, <button>
     -> Opening Tag:  <button>
     -> Closing Tag:  </button>
+    -> Self Closing Tag: <img>, <br>, <hr>
 
 
 # Elements - Opening Tag + Content/Data + Closing Tag
@@ -26,6 +27,10 @@ BoilerPlate Code = Necessary / Required Code
 ## Comments = Extra Information 
 
 
+## Bold = <b> or <strong>
+## Italic = <i> or <em> emphasize
+## Underline = <u>
+## Strike Through = <s>
 
 
 CSS = Cascading Style Sheets 
@@ -48,3 +53,12 @@ CSS = Cascading Style Sheets
         h2 {
             background-color: red
         }
+
+
+
+## img = <img src="" alt="">
+        src = source of the image / Image Path
+            2 Methods to give path:
+                1) Absolute Path
+                2) Relatice Path
+        alt = Alternate Text 
