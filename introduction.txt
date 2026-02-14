@@ -62,3 +62,26 @@ CSS = Cascading Style Sheets
                 1) Absolute Path
                 2) Relatice Path
         alt = Alternate Text 
+
+
+
+## HyperLink = <a> (Anchor Tag)
+<a href=""></a>
+
+
+
+## HTML Lists
+    1) Unordered List = <ul>
+    2) Ordered List = <ol>
+    3) Descriptive List = <dl>  
+        <dt> = Descriptive Title
+        <dd> = Descriptive Data
+
+
+## <div> = Divison Tag / Container
+
+
+## Id  
+
+
+## Class
