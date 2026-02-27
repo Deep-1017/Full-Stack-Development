@@ -90,3 +90,11 @@ CSS = Cascading Style Sheets
 ## Block Level Elements = 
 
 ## Inline Elements = 
+
+
+
+# CSS
+
+
+-> To center any Elements horizontally
+        margin: auto;
