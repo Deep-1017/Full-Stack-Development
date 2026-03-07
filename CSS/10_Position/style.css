@@ -1,0 +1,15 @@
+#box {
+    border: 2px solid green;
+    margin: auto;
+    width: 100px;
+    position: relative;
+    top: 50px;
+    left: 100px;
+}
+#box2 {
+    border: 2px solid green;
+    background-color: brown;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
