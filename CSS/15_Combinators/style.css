@@ -1,0 +1,12 @@
+#container {
+    width: 800px;
+    height: 200px;
+    background-color: lightblue;
+    margin: 0 auto;
+}
+
+
+
+#container ~ p {
+    color: red;
+}

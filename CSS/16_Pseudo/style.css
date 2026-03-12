@@ -1,0 +1,19 @@
+#box {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin: 50px auto;
+}
+
+/* #box:hover {
+    background-color: blanchedalmond;
+    font-size: 40px;
+    font-weight: 900;
+    overflow: auto;
+} */
+
+p:nth-child(even) {
+    color: red;
+    font-size: 20px;
+    font-weight: 900;
+}
