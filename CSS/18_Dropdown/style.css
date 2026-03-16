@@ -1,0 +1,33 @@
+.dropdown-content {
+    display: none;
+    position: absolute;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    gap: 20px;
+}
+
+#home-list {
+    position: relative;
+}
+
+#home-dropdown {
+    display: none;
+    position: absolute;
+}
+
+#home-list:hover #home-dropdown {
+    display: block;
+}
