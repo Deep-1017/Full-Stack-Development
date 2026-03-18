@@ -1,0 +1,7 @@
+#box p {
+    width: 200px;
+    border: 2px solid red;
+    white-space: nowrap;
+    text-overflow: clip;
+    overflow: hidden;
+}
