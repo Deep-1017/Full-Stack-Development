@@ -1,0 +1,22 @@
+#box1 {
+    height: 300px;
+    width: 1100px;
+    border: 2px solid black;
+    background-image: linear-gradient(to bottom right, red, green, blue, yellow, pink);
+    opacity: 0.5;
+    font-size: 5vw;
+    text-align: center;
+    color: aliceblue;
+}
+
+#box2 {
+    margin-top: 50px;
+    height: 300px;
+    width: 1100px;
+    border: 2px solid black;
+    font-size: 5vw;
+    text-align: center;
+    color: aliceblue;
+    background-image: radial-gradient(circle, blue, rgb(213, 13, 46) 10%, rgb(77, 128, 0) 20%);
+    opacity: 0.5;
+}
