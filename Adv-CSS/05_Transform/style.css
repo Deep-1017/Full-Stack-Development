@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#box {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    color: white;
+    /* transform: translate(40px, 100px); */
+    position: relative;
+}
+
+#box:hover {
+    transform: rotate(-90deg);
+    /* transform: scaleX(0.5); */
+    transform: skewY(-20deg);
+}
+
+#heading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

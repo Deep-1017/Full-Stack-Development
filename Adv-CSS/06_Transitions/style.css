@@ -1,0 +1,16 @@
+#box {
+    width: 200px;
+    height: 200px;
+    background-color: #6495ed;
+    /* transition: all 5s; */
+    transition-property: all;
+    transition-duration: 5s;
+    /* transition-delay: 2s; */
+    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+#box:hover {
+    width: 500px;
+    background-color: coral;
+    height: 500px;
+}
