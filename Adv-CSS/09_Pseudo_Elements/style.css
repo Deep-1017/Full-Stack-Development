@@ -1,0 +1,21 @@
+#para::first-letter {
+    font-size: 3em;
+    color: red;
+}
+
+#para::first-line {
+    color: rgb(68, 255, 0);
+}
+
+#heading {
+    font-size: 3em;
+    color: blue;
+}
+
+#heading:hover {
+    color: red;
+}
+
+#heading::after {
+    content: "\003E \003E";
+}
