@@ -1,0 +1,1069 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GrandVista Hotel Management</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-icon">✦</span>
+        <div>
+          <div class="brand-name">GrandVista</div>
+          <div class="brand-sub">Hotel Management</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Overview</div>
+        <a href="#" class="nav-item active" data-page="dashboard">
+          <i class="fa-solid fa-chart-pie"></i><span>Dashboard</span>
+        </a>
+
+        <div class="nav-section-label">Operations</div>
+        <a href="#" class="nav-item" data-page="rooms">
+          <i class="fa-solid fa-bed"></i><span>Rooms</span>
+        </a>
+        <a href="#" class="nav-item" data-page="reservations">
+          <i class="fa-solid fa-calendar-check"></i><span>Reservations</span>
+        </a>
+        <a href="#" class="nav-item" data-page="checkin">
+          <i class="fa-solid fa-right-to-bracket"></i
+          ><span>Check-In / Out</span>
+        </a>
+        <a href="#" class="nav-item" data-page="guests">
+          <i class="fa-solid fa-users"></i><span>Guests</span>
+        </a>
+
+        <div class="nav-section-label">Finance</div>
+        <a href="#" class="nav-item" data-page="billing">
+          <i class="fa-solid fa-file-invoice-dollar"></i><span>Billing</span>
+        </a>
+        <a href="#" class="nav-item" data-page="reports">
+          <i class="fa-solid fa-chart-line"></i><span>Reports</span>
+        </a>
+
+        <div class="nav-section-label">Services</div>
+        <a href="#" class="nav-item" data-page="housekeeping">
+          <i class="fa-solid fa-broom"></i><span>Housekeeping</span>
+        </a>
+        <a href="#" class="nav-item" data-page="restaurant">
+          <i class="fa-solid fa-utensils"></i><span>Restaurant</span>
+        </a>
+        <a href="#" class="nav-item" data-page="staff">
+          <i class="fa-solid fa-id-badge"></i><span>Staff</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar">AM</div>
+          <div>
+            <div class="user-name">Admin Manager</div>
+            <div class="user-role">Super Admin</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main" id="main">
+      <!-- TOP BAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle" id="sidebarToggle">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="page-breadcrumb" id="breadcrumb">Dashboard</div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-date" id="topbarDate"></div>
+          <button class="notif-btn">
+            <i class="fa-solid fa-bell"></i><span class="notif-dot"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- PAGES -->
+      <div class="pages">
+        <!-- ==================== DASHBOARD ==================== -->
+        <section class="page active" id="page-dashboard">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Good Morning, <em>Manager</em></h1>
+              <p class="page-subtitle">
+                Here's what's happening at GrandVista today.
+              </p>
+            </div>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-card gold">
+              <div class="stat-icon"><i class="fa-solid fa-bed"></i></div>
+              <div class="stat-info">
+                <div class="stat-value" id="stat-occupied">24</div>
+                <div class="stat-label">Occupied Rooms</div>
+              </div>
+              <div class="stat-trend up">+3 today</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-door-open"></i></div>
+              <div class="stat-info">
+                <div class="stat-value" id="stat-available">16</div>
+                <div class="stat-label">Available Rooms</div>
+              </div>
+              <div class="stat-trend up">+2 freed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-calendar"></i></div>
+              <div class="stat-info">
+                <div class="stat-value" id="stat-reservations">8</div>
+                <div class="stat-label">Today's Arrivals</div>
+              </div>
+              <div class="stat-trend">Confirmed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+              </div>
+              <div class="stat-info">
+                <div class="stat-value" id="stat-revenue">₹1.24L</div>
+                <div class="stat-label">Today's Revenue</div>
+              </div>
+              <div class="stat-trend up">+12%</div>
+            </div>
+          </div>
+
+          <div class="dash-grid">
+            <!-- Occupancy Bar -->
+            <div class="dash-card wide">
+              <div class="dash-card-header">
+                <h3>Weekly Occupancy</h3>
+              </div>
+              <div class="bar-chart" id="weeklyChart"></div>
+            </div>
+
+            <!-- Arrivals today -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <h3>Today's Arrivals</h3>
+                <span class="badge">8</span>
+              </div>
+              <div class="arrival-list" id="arrivalList"></div>
+            </div>
+
+            <!-- Room Status -->
+            <div class="dash-card">
+              <div class="dash-card-header"><h3>Room Status</h3></div>
+              <div class="donut-wrapper">
+                <svg class="donut" viewBox="0 0 120 120">
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="50"
+                    fill="none"
+                    stroke="var(--border)"
+                    stroke-width="14"
+                  />
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="50"
+                    fill="none"
+                    stroke="var(--gold)"
+                    stroke-width="14"
+                    stroke-dasharray="188 126"
+                    stroke-dashoffset="0"
+                    stroke-linecap="round"
+                  />
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="50"
+                    fill="none"
+                    stroke="var(--accent2)"
+                    stroke-width="14"
+                    stroke-dasharray="76 238"
+                    stroke-dashoffset="-188"
+                    stroke-linecap="round"
+                  />
+                  <text x="60" y="56" text-anchor="middle" class="donut-val">
+                    60%
+                  </text>
+                  <text x="60" y="70" text-anchor="middle" class="donut-sub">
+                    Occupancy
+                  </text>
+                </svg>
+              </div>
+              <div class="donut-legend">
+                <div class="legend-item">
+                  <span class="dot gold"></span>Occupied (24)
+                </div>
+                <div class="legend-item">
+                  <span class="dot green"></span>Available (16)
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="dash-card wide">
+              <div class="dash-card-header"><h3>Recent Activity</h3></div>
+              <div class="activity-list" id="activityList"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== ROOMS ==================== -->
+        <section class="page" id="page-rooms">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Room <em>Management</em></h1>
+              <p class="page-subtitle">View and manage all hotel rooms.</p>
+            </div>
+            <button class="btn-gold" onclick="openModal('addRoomModal')">
+              <i class="fa-solid fa-plus"></i> Add Room
+            </button>
+          </div>
+
+          <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">
+              All Rooms
+            </button>
+            <button class="filter-btn" data-filter="available">
+              Available
+            </button>
+            <button class="filter-btn" data-filter="occupied">Occupied</button>
+            <button class="filter-btn" data-filter="maintenance">
+              Maintenance
+            </button>
+            <button class="filter-btn" data-filter="cleaning">Cleaning</button>
+            <input
+              type="text"
+              class="search-input"
+              id="roomSearch"
+              placeholder="Search room…"
+            />
+          </div>
+
+          <div class="room-grid" id="roomGrid"></div>
+
+          <!-- Add Room Modal -->
+          <div class="modal-overlay" id="addRoomModal">
+            <div class="modal">
+              <div class="modal-header">
+                <h3>Add New Room</h3>
+                <button
+                  class="modal-close"
+                  onclick="closeModal('addRoomModal')"
+                >
+                  ✕
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Room Number</label
+                    ><input type="text" id="newRoomNo" placeholder="e.g. 201" />
+                  </div>
+                  <div class="form-group">
+                    <label>Floor</label
+                    ><input type="number" id="newRoomFloor" placeholder="2" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Type</label>
+                    <select id="newRoomType">
+                      <option>Standard</option>
+                      <option>Deluxe</option>
+                      <option>Suite</option>
+                      <option>Presidential</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Capacity</label
+                    ><input type="number" id="newRoomCap" placeholder="2" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Rate per Night (₹)</label
+                    ><input type="number" id="newRoomRate" placeholder="3500" />
+                  </div>
+                  <div class="form-group">
+                    <label>Status</label>
+                    <select id="newRoomStatus">
+                      <option>available</option>
+                      <option>maintenance</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Amenities</label
+                  ><input
+                    type="text"
+                    id="newRoomAmenities"
+                    placeholder="AC, WiFi, TV…"
+                  />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn-ghost" onclick="closeModal('addRoomModal')">
+                  Cancel
+                </button>
+                <button class="btn-gold" onclick="addRoom()">Add Room</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== RESERVATIONS ==================== -->
+        <section class="page" id="page-reservations">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Reservations</h1>
+              <p class="page-subtitle">Manage all bookings and reservations.</p>
+            </div>
+            <button class="btn-gold" onclick="openModal('addReservationModal')">
+              <i class="fa-solid fa-plus"></i> New Reservation
+            </button>
+          </div>
+
+          <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="confirmed">
+              Confirmed
+            </button>
+            <button class="filter-btn" data-filter="pending">Pending</button>
+            <button class="filter-btn" data-filter="cancelled">
+              Cancelled
+            </button>
+            <input
+              type="text"
+              class="search-input"
+              id="resSearch"
+              placeholder="Search guest or room…"
+            />
+          </div>
+
+          <div class="table-card">
+            <table class="data-table" id="reservationTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Guest</th>
+                  <th>Room</th>
+                  <th>Check-In</th>
+                  <th>Check-Out</th>
+                  <th>Nights</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reservationBody"></tbody>
+            </table>
+          </div>
+
+          <!-- Add Reservation Modal -->
+          <div class="modal-overlay" id="addReservationModal">
+            <div class="modal">
+              <div class="modal-header">
+                <h3>New Reservation</h3>
+                <button
+                  class="modal-close"
+                  onclick="closeModal('addReservationModal')"
+                >
+                  ✕
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Guest Name</label
+                    ><input type="text" id="resGuest" placeholder="Full name" />
+                  </div>
+                  <div class="form-group">
+                    <label>Room</label>
+                    <select id="resRoom"></select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Check-In</label><input type="date" id="resCheckIn" />
+                  </div>
+                  <div class="form-group">
+                    <label>Check-Out</label
+                    ><input type="date" id="resCheckOut" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Adults</label
+                    ><input type="number" id="resAdults" value="1" min="1" />
+                  </div>
+                  <div class="form-group">
+                    <label>Children</label
+                    ><input type="number" id="resChildren" value="0" min="0" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Special Requests</label
+                  ><textarea
+                    id="resNotes"
+                    rows="2"
+                    placeholder="Any special requests…"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  class="btn-ghost"
+                  onclick="closeModal('addReservationModal')"
+                >
+                  Cancel
+                </button>
+                <button class="btn-gold" onclick="addReservation()">
+                  Confirm Reservation
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== CHECK-IN / OUT ==================== -->
+        <section class="page" id="page-checkin">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Check-In / <em>Check-Out</em></h1>
+              <p class="page-subtitle">
+                Process guest arrivals and departures.
+              </p>
+            </div>
+          </div>
+          <div class="checkin-grid">
+            <div class="checkin-panel">
+              <div class="panel-title">
+                <i class="fa-solid fa-right-to-bracket"></i> Check-In
+              </div>
+              <div class="form-group">
+                <label>Reservation ID / Guest Name</label
+                ><input type="text" id="ciSearch" placeholder="Search…" />
+              </div>
+              <div class="checkin-results" id="ciResults"></div>
+              <div class="form-group" style="margin-top: 1rem">
+                <label>ID Proof</label>
+                <select id="ciIdType">
+                  <option>Aadhaar Card</option>
+                  <option>Passport</option>
+                  <option>PAN Card</option>
+                  <option>Driving Licence</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>ID Number</label
+                ><input type="text" id="ciIdNum" placeholder="ID number" />
+              </div>
+              <button class="btn-gold full-width" onclick="processCheckIn()">
+                Process Check-In
+              </button>
+            </div>
+            <div class="checkin-panel">
+              <div class="panel-title">
+                <i class="fa-solid fa-right-from-bracket"></i> Check-Out
+              </div>
+              <div class="form-group">
+                <label>Room Number / Guest Name</label
+                ><input type="text" id="coSearch" placeholder="Search…" />
+              </div>
+              <div class="checkin-results" id="coResults"></div>
+              <div
+                class="checkout-summary"
+                id="coSummary"
+                style="display: none"
+              >
+                <div class="summary-title">Checkout Summary</div>
+                <div class="summary-rows" id="summaryRows"></div>
+                <div class="summary-total" id="summaryTotal"></div>
+                <button
+                  class="btn-gold full-width"
+                  onclick="processCheckOut()"
+                  style="margin-top: 1rem"
+                >
+                  Confirm Check-Out & Generate Bill
+                </button>
+              </div>
+            </div>
+            <div class="checkin-panel">
+              <div class="panel-title">
+                <i class="fa-solid fa-list-check"></i> Currently Checked-In
+              </div>
+              <div class="checked-in-list" id="checkedInList"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== GUESTS ==================== -->
+        <section class="page" id="page-guests">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Guest <em>Directory</em></h1>
+              <p class="page-subtitle">Complete guest profiles and history.</p>
+            </div>
+            <button class="btn-gold" onclick="openModal('addGuestModal')">
+              <i class="fa-solid fa-plus"></i> Add Guest
+            </button>
+          </div>
+          <div class="filter-bar">
+            <input
+              type="text"
+              class="search-input"
+              id="guestSearch"
+              placeholder="Search guest…"
+              style="width: 300px"
+            />
+          </div>
+          <div class="table-card">
+            <table class="data-table" id="guestTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Nationality</th>
+                  <th>Visits</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="guestBody"></tbody>
+            </table>
+          </div>
+          <!-- Add Guest Modal -->
+          <div class="modal-overlay" id="addGuestModal">
+            <div class="modal">
+              <div class="modal-header">
+                <h3>Add New Guest</h3>
+                <button
+                  class="modal-close"
+                  onclick="closeModal('addGuestModal')"
+                >
+                  ✕
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>First Name</label
+                    ><input
+                      type="text"
+                      id="gFirstName"
+                      placeholder="First name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Last Name</label
+                    ><input
+                      type="text"
+                      id="gLastName"
+                      placeholder="Last name"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Email</label
+                    ><input
+                      type="email"
+                      id="gEmail"
+                      placeholder="email@example.com"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Phone</label
+                    ><input type="text" id="gPhone" placeholder="+91 98765…" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Nationality</label
+                    ><input
+                      type="text"
+                      id="gNationality"
+                      placeholder="Indian"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Date of Birth</label><input type="date" id="gDob" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Address</label
+                  ><textarea
+                    id="gAddress"
+                    rows="2"
+                    placeholder="Full address…"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn-ghost" onclick="closeModal('addGuestModal')">
+                  Cancel
+                </button>
+                <button class="btn-gold" onclick="addGuest()">
+                  Save Guest
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== BILLING ==================== -->
+        <section class="page" id="page-billing">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Billing & <em>Invoices</em></h1>
+              <p class="page-subtitle">Manage all financial transactions.</p>
+            </div>
+            <button class="btn-gold" onclick="openModal('addBillModal')">
+              <i class="fa-solid fa-plus"></i> New Invoice
+            </button>
+          </div>
+          <div class="stat-grid" style="grid-template-columns: repeat(3, 1fr)">
+            <div class="stat-card gold">
+              <div class="stat-icon">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+              </div>
+              <div class="stat-info">
+                <div class="stat-value">₹8.4L</div>
+                <div class="stat-label">Monthly Revenue</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-clock"></i></div>
+              <div class="stat-info">
+                <div class="stat-value">₹32K</div>
+                <div class="stat-label">Pending Payments</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <div class="stat-info">
+                <div class="stat-value">98.2%</div>
+                <div class="stat-label">Collection Rate</div>
+              </div>
+            </div>
+          </div>
+          <div class="table-card" style="margin-top: 1.5rem">
+            <table class="data-table" id="billingTable">
+              <thead>
+                <tr>
+                  <th>Invoice #</th>
+                  <th>Guest</th>
+                  <th>Room</th>
+                  <th>Period</th>
+                  <th>Room Charges</th>
+                  <th>Extras</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="billingBody"></tbody>
+            </table>
+          </div>
+          <!-- Add Bill Modal -->
+          <div class="modal-overlay" id="addBillModal">
+            <div class="modal">
+              <div class="modal-header">
+                <h3>New Invoice</h3>
+                <button
+                  class="modal-close"
+                  onclick="closeModal('addBillModal')"
+                >
+                  ✕
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Guest Name</label
+                    ><input
+                      type="text"
+                      id="billGuest"
+                      placeholder="Guest name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Room</label
+                    ><input type="text" id="billRoom" placeholder="Room no." />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Room Charges (₹)</label
+                    ><input type="number" id="billRoom$" placeholder="0" />
+                  </div>
+                  <div class="form-group">
+                    <label>Restaurant (₹)</label
+                    ><input type="number" id="billFood" placeholder="0" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Laundry (₹)</label
+                    ><input type="number" id="billLaundry" placeholder="0" />
+                  </div>
+                  <div class="form-group">
+                    <label>Other (₹)</label
+                    ><input type="number" id="billOther" placeholder="0" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Payment Method</label>
+                  <select id="billMethod">
+                    <option>Cash</option>
+                    <option>UPI</option>
+                    <option>Credit Card</option>
+                    <option>Debit Card</option>
+                    <option>Bank Transfer</option>
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn-ghost" onclick="closeModal('addBillModal')">
+                  Cancel
+                </button>
+                <button class="btn-gold" onclick="addBill()">
+                  Generate Invoice
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== REPORTS ==================== -->
+        <section class="page" id="page-reports">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Reports & <em>Analytics</em></h1>
+              <p class="page-subtitle">Insights and performance metrics.</p>
+            </div>
+          </div>
+          <div class="report-tabs">
+            <button class="rtab active" data-report="occupancy">
+              Occupancy
+            </button>
+            <button class="rtab" data-report="revenue">Revenue</button>
+            <button class="rtab" data-report="guests">Guest Stats</button>
+          </div>
+          <div class="report-content" id="reportContent"></div>
+        </section>
+
+        <!-- ==================== HOUSEKEEPING ==================== -->
+        <section class="page" id="page-housekeeping">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Housekeeping</h1>
+              <p class="page-subtitle">
+                Track room cleaning and maintenance tasks.
+              </p>
+            </div>
+            <button class="btn-gold" onclick="openModal('addTaskModal')">
+              <i class="fa-solid fa-plus"></i> Add Task
+            </button>
+          </div>
+          <div class="hk-columns">
+            <div class="hk-col">
+              <div class="hk-col-title pending">🧹 Pending</div>
+              <div class="hk-tasks" id="hkPending"></div>
+            </div>
+            <div class="hk-col">
+              <div class="hk-col-title progress">🔄 In Progress</div>
+              <div class="hk-tasks" id="hkProgress"></div>
+            </div>
+            <div class="hk-col">
+              <div class="hk-col-title done">✅ Completed</div>
+              <div class="hk-tasks" id="hkDone"></div>
+            </div>
+          </div>
+          <!-- Add Task Modal -->
+          <div class="modal-overlay" id="addTaskModal">
+            <div class="modal">
+              <div class="modal-header">
+                <h3>Add Housekeeping Task</h3>
+                <button
+                  class="modal-close"
+                  onclick="closeModal('addTaskModal')"
+                >
+                  ✕
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Room</label
+                    ><input type="text" id="hkRoom" placeholder="Room no." />
+                  </div>
+                  <div class="form-group">
+                    <label>Type</label>
+                    <select id="hkType">
+                      <option>Regular Cleaning</option>
+                      <option>Deep Cleaning</option>
+                      <option>Turndown Service</option>
+                      <option>Maintenance</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Assigned To</label
+                    ><input type="text" id="hkStaff" placeholder="Staff name" />
+                  </div>
+                  <div class="form-group">
+                    <label>Priority</label>
+                    <select id="hkPriority">
+                      <option>Normal</option>
+                      <option>High</option>
+                      <option>Urgent</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Notes</label
+                  ><textarea
+                    id="hkNotes"
+                    rows="2"
+                    placeholder="Special instructions…"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn-ghost" onclick="closeModal('addTaskModal')">
+                  Cancel
+                </button>
+                <button class="btn-gold" onclick="addHkTask()">
+                  Create Task
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== RESTAURANT ==================== -->
+        <section class="page" id="page-restaurant">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Restaurant & <em>Room Service</em></h1>
+              <p class="page-subtitle">F&B orders and kitchen management.</p>
+            </div>
+            <button class="btn-gold" onclick="openModal('addOrderModal')">
+              <i class="fa-solid fa-plus"></i> New Order
+            </button>
+          </div>
+          <div class="table-card">
+            <table class="data-table" id="restaurantTable">
+              <thead>
+                <tr>
+                  <th>Order #</th>
+                  <th>Room/Table</th>
+                  <th>Items</th>
+                  <th>Amount</th>
+                  <th>Time</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="restaurantBody"></tbody>
+            </table>
+          </div>
+          <!-- Add Order Modal -->
+          <div class="modal-overlay" id="addOrderModal">
+            <div class="modal">
+              <div class="modal-header">
+                <h3>New Order</h3>
+                <button
+                  class="modal-close"
+                  onclick="closeModal('addOrderModal')"
+                >
+                  ✕
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Room / Table</label
+                    ><input
+                      type="text"
+                      id="ordRoom"
+                      placeholder="e.g. Room 201 / Table 5"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Order Type</label>
+                    <select id="ordType">
+                      <option>Room Service</option>
+                      <option>Dine-In</option>
+                      <option>Takeaway</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Items</label
+                  ><textarea
+                    id="ordItems"
+                    rows="3"
+                    placeholder="Paneer Butter Masala x2, Naan x4…"
+                  ></textarea>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Amount (₹)</label
+                    ><input type="number" id="ordAmount" placeholder="0" />
+                  </div>
+                  <div class="form-group">
+                    <label>Special Instructions</label
+                    ><input
+                      type="text"
+                      id="ordNotes"
+                      placeholder="No onions…"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn-ghost" onclick="closeModal('addOrderModal')">
+                  Cancel
+                </button>
+                <button class="btn-gold" onclick="addOrder()">
+                  Place Order
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== STAFF ==================== -->
+        <section class="page" id="page-staff">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Staff <em>Management</em></h1>
+              <p class="page-subtitle">
+                Employee records, roles, and attendance.
+              </p>
+            </div>
+            <button class="btn-gold" onclick="openModal('addStaffModal')">
+              <i class="fa-solid fa-plus"></i> Add Staff
+            </button>
+          </div>
+          <div class="table-card">
+            <table class="data-table" id="staffTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Role</th>
+                  <th>Shift</th>
+                  <th>Phone</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="staffBody"></tbody>
+            </table>
+          </div>
+          <!-- Add Staff Modal -->
+          <div class="modal-overlay" id="addStaffModal">
+            <div class="modal">
+              <div class="modal-header">
+                <h3>Add Staff Member</h3>
+                <button
+                  class="modal-close"
+                  onclick="closeModal('addStaffModal')"
+                >
+                  ✕
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Full Name</label
+                    ><input type="text" id="stName" placeholder="Name" />
+                  </div>
+                  <div class="form-group">
+                    <label>Department</label>
+                    <select id="stDept">
+                      <option>Front Desk</option>
+                      <option>Housekeeping</option>
+                      <option>Restaurant</option>
+                      <option>Security</option>
+                      <option>Maintenance</option>
+                      <option>Management</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Role</label
+                    ><input
+                      type="text"
+                      id="stRole"
+                      placeholder="e.g. Supervisor"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Shift</label>
+                    <select id="stShift">
+                      <option>Morning (6AM-2PM)</option>
+                      <option>Afternoon (2PM-10PM)</option>
+                      <option>Night (10PM-6AM)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Phone</label
+                    ><input type="text" id="stPhone" placeholder="+91 98765…" />
+                  </div>
+                  <div class="form-group">
+                    <label>Salary (₹)</label
+                    ><input type="number" id="stSalary" placeholder="25000" />
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn-ghost" onclick="closeModal('addStaffModal')">
+                  Cancel
+                </button>
+                <button class="btn-gold" onclick="addStaff()">
+                  Save Staff
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- /pages -->
+    </main>
+
+    <!-- TOAST -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
