@@ -61,7 +61,7 @@ Example: `([1, 2, 2, 3, 2], 2)` → `3`
 
 ---
 
-## 🟡 Intermediate
+## Intermediate
 
 **Q9. Function Expression vs Declaration**  
 Rewrite the `greet` function (Q1) as:
@@ -155,7 +155,7 @@ triple(5); // 15
 
 ## Hard
 
-**Q19. Memoization**
+**Q19. Memoization**  
 Write a function `memoize(fn)` that takes any function and returns a memoized version of it.  
 The memoized version should cache results so the same input isn't computed twice.  
 Test it with a slow Fibonacci function using `console.time` to show the speedup.
