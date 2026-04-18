@@ -22,7 +22,8 @@ function addition(a, b) {
   console.log(res);
 }
 
-// addition(40, 30);
+// let res = addition;
+// console.log(res);
 
 // 3)
 function mul(a, b, c = 2) {
@@ -34,10 +35,21 @@ let value = mul(10, 20, 1);
 // console.log(value);
 
 // 4)
-function showMsg(from, text) {
-    text = text || 'No text given'
-    console.log(`${from}: ${text}`);
+let showMsg = function (from, text) {
+  text = text || "No text given";
+  console.log(`${from}: ${text}`);
+};
+
+// showMsg("Deep");
+// showMsg("Deep", "Hello");
+
+// 5)
+function sayHi() {
+  // (1) create
+  console.log("Hello");
 }
 
-showMsg("Deep")
-showMsg("Deep", "Hello")
+let func = sayHi     // copy
+
+sayHi()
+func()
