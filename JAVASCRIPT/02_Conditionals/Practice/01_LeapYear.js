@@ -24,20 +24,43 @@
 // }
 
 // 17)
-let atm_pin = 1234;
-let withdraw_amt = 5000;
-let current_balance = 10000;
+// let atm_pin = 1234;
+// let withdraw_amt = 5000;
+// let current_balance = 10000;
 
-if (atm_pin === 1234) {
-  if (withdraw_amt % 100 == 0) {
-    if (withdraw_amt <= current_balance) {
-      console.log("Please Collect Your Cash");
-    } else {
+// if (atm_pin === 1234) {
+//   if (withdraw_amt % 100 == 0) {
+//     if (withdraw_amt <= current_balance) {
+//       console.log("Please Collect Your Cash");
+//     } else {
+//       console.log("Insufficient Balance");
+//     }
+//   } else {
+//     console.log("Withdraw amnt is not a multiple of 100");
+//   }
+// } else {
+//   console.log("Incorrect Pin");
+// }
+
+
+// 17)
+let pin = 1234
+let withdraw = 5000
+let balance = 2000
+
+if(pin == 1234) {
+  if(withdraw % 100 == 0) {
+    if(withdraw <= balance) {
+      console.log("You can collect your cash");
+    }
+    else {
       console.log("Insufficient Balance");
     }
-  } else {
-    console.log("Withdraw amnt is not a multiple of 100");
   }
-} else {
+  else {
+    console.log("Not multiple of 100");
+  }
+}
+else {
   console.log("Incorrect Pin");
 }
