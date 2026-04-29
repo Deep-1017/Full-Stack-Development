@@ -23,8 +23,8 @@ const admin = user; // copy by reference
 // console.log(admin);
 admin.name = "Alice";
 
-// console.log(admin);
-// console.log(user);
+console.log(admin);
+console.log(user);
 
 const a = {};
 const b = {};
