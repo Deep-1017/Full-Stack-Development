@@ -2,6 +2,8 @@ const numbers = [45, 4, 9, 16, 25];
 
 // const myNum = numbers.filter((item) => {return item > 20})
 // console.log(myNum);
+// console.log(numbers);
+
 
 const books = [
   {
@@ -42,4 +44,4 @@ const books = [
 ];
 
 const myBook = books.filter((bk) => bk.price > 400 && bk.addition > 2010);
-console.log(myBook);
+// console.log(myBook);
