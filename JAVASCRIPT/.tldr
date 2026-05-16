@@ -942,11 +942,9 @@
 			"typeName": "shape"
 		},
 		{
-			"editingShapeId": "shape:RzqBgkvYSPlS8YZ64Esr7",
+			"editingShapeId": null,
 			"croppingShapeId": null,
-			"selectedShapeIds": [
-				"shape:RzqBgkvYSPlS8YZ64Esr7"
-			],
+			"selectedShapeIds": [],
 			"hoveredShapeId": null,
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
@@ -1464,8 +1462,8 @@
 			"typeName": "shape"
 		},
 		{
-			"x": 0,
-			"y": 0,
+			"x": -47.33335622151692,
+			"y": 35.666656494140625,
 			"z": 1,
 			"meta": {},
 			"id": "camera:page:yv_iFYzz-zxh0PUtmN1AL",
@@ -2252,14 +2250,11 @@
 		{
 			"followingUserId": null,
 			"opacityForNextShape": 1,
-			"stylesForNextShape": {
-				"tldraw:geo": "rectangle",
-				"tldraw:color": "red"
-			},
+			"stylesForNextShape": {},
 			"brush": null,
 			"scribbles": [],
 			"cursor": {
-				"type": "default",
+				"type": "cross",
 				"rotation": 0
 			},
 			"isFocusMode": false,
@@ -2269,7 +2264,7 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1280,
+				"w": 1110,
 				"h": 566
 			},
 			"insets": [
